@@ -3,10 +3,12 @@ com\mycompany\appregistropersonal\igu\CargaDatos$7.class
 com\mycompany\appregistropersonal\logica\Controlador.class
 com\mycompany\appregistropersonal\persistencia\exceptions\PreexistingEntityException.class
 com\mycompany\appregistropersonal\igu\CargaDatos$2.class
+com\mycompany\appregistropersonal\igu\VerDatos.class
 com\mycompany\appregistropersonal\igu\CargaDatos$6.class
 com\mycompany\appregistropersonal\persistencia\PersonaJpaController.class
 com\mycompany\appregistropersonal\igu\Principal$1.class
 com\mycompany\appregistropersonal\persistencia\exceptions\IllegalOrphanException.class
+com\mycompany\appregistropersonal\igu\Principal$2.class
 com\mycompany\appregistropersonal\persistencia\exceptions\NonexistentEntityException.class
 com\mycompany\appregistropersonal\persistencia\ControladorPersistencia.class
 com\mycompany\appregistropersonal\AppRegistroPersonal.class
