@@ -48,7 +48,7 @@ public class Controlador {
         perso.setApellido(apellidoPersona);
         perso.setDNI(dniPersona);
         perso.setCUIL(cuitPersona);
-        perso.setCategoria(cuitPersona);
+        perso.setCategoria(cbmCategoriaPersona);
         perso.setSueldo(sueldoPersona);
         perso.setObservacon(observaPersona);
         

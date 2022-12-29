@@ -271,18 +271,16 @@ public class CargaDatos extends javax.swing.JFrame {
         String cbmCategoriaPersona = (String) cmbCategoria.getSelectedItem();
         String sueldoPersona = txtSueldo.getText();
         String observaPersona = txtObservaciones.getText();
-        
-        control.guardar(nombrePersona, apellidoPersona, dniPersona, cuitPersona,
-                cbmCategoriaPersona, sueldoPersona, observaPersona);
-        
-        
+       
         
         //Verificar que no este en blanco los campos
         if (observaPersona.equals("") || nombrePersona.equals("") || apellidoPersona.equals("") || dniPersona.equals("") 
-                || cuitPersona.equals("") || cbmCategoriaPersona.equals(0) || sueldoPersona.equals("")){
+                || cuitPersona.equals("") || cbmCategoriaPersona.equals("-") || sueldoPersona.equals("")){
             mostrarMensaje("Falta completar campos", "Error", "Error de compleación");
         } else {
             mostrarMensaje("Se guardó Correctamente", "Info", "Guardado");
+            control.guardar(nombrePersona, apellidoPersona, dniPersona, cuitPersona,
+                cbmCategoriaPersona, sueldoPersona, observaPersona);
         }
         
     }//GEN-LAST:event_btnGuardarActionPerformed

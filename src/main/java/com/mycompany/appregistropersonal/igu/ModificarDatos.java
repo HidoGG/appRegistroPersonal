@@ -277,15 +277,23 @@ public class ModificarDatos extends javax.swing.JFrame {
         control.modificarPersona(perso, nombrePersona, apellidoPersona, dniPersona, cuitPersona,
                 cbmCategoriaPersona, sueldoPersona, observaPersona);
         
-        //Mensaje 
-        mostrarMensaje("Edición realizada correctamente", "Info", "Edición correcta");
+        //Mensaje
+        if (nombrePersona.equals("") || apellidoPersona.equals("") || dniPersona.equals("") || cuitPersona.equals("") || 
+                cbmCategoriaPersona.equals("-") || sueldoPersona.equals("") || observaPersona.equals("")){
+            mostrarMensaje("Falto completar campos", "Error", "Error de Guardado");
+        }else {
+            mostrarMensaje("Edición realizada correctamente", "Info", "Edición correcta");
+            
+            VerDatos pantalla = new VerDatos();
+            pantalla.setVisible(true);
+            pantalla.setLocationRelativeTo(null);
         
-        VerDatos pantalla = new VerDatos();
-        pantalla.setVisible(true);
-        pantalla.setLocationRelativeTo(null);
+            //Cierro ventana
+            this.dispose();
+        }
         
-        //Cierro ventana
-        this.dispose();
+        
+        
         
         
     }//GEN-LAST:event_btnGuardarActionPerformed
