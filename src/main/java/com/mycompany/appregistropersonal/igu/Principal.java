@@ -124,6 +124,7 @@ public class Principal extends javax.swing.JFrame {
         CargaDatos pantalla = new CargaDatos();
         pantalla.setVisible(true); //Visible la pantalla
         pantalla.setLocationRelativeTo(null);//Pantalla centrada en el medio
+        this.dispose();
 
     }//GEN-LAST:event_btnCargarActionPerformed
 

@@ -39,6 +39,7 @@ public class CargaDatos extends javax.swing.JFrame {
         btnLimpiar = new javax.swing.JButton();
         btnGuardar = new javax.swing.JButton();
         txtApellido = new javax.swing.JTextField();
+        btnRegresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -119,6 +120,15 @@ public class CargaDatos extends javax.swing.JFrame {
             }
         });
 
+        btnRegresar.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        btnRegresar.setIcon(new javax.swing.ImageIcon("C:\\Users\\gabriel\\Desktop\\JavaProjectoV1\\regreso (2).png")); // NOI18N
+        btnRegresar.setText(" Regresar");
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
@@ -153,9 +163,10 @@ public class CargaDatos extends javax.swing.JFrame {
                                 .addComponent(txtSueldo, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)))
                         .addGap(33, 33, 33)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
+                            .addComponent(btnLimpiar, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
+                            .addComponent(btnRegresar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(45, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
@@ -187,19 +198,17 @@ public class CargaDatos extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtSueldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15))
+                    .addComponent(jLabel15)
+                    .addComponent(btnLimpiar))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel16)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap())
+                    .addComponent(jLabel16)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                        .addComponent(btnLimpiar)
-                        .addGap(18, 18, 18)
                         .addComponent(btnGuardar)
-                        .addGap(23, 23, 23))))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(15, 15, 15))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -210,7 +219,7 @@ public class CargaDatos extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 378, Short.MAX_VALUE)
+            .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -266,24 +275,51 @@ public class CargaDatos extends javax.swing.JFrame {
         control.guardar(nombrePersona, apellidoPersona, dniPersona, cuitPersona,
                 cbmCategoriaPersona, sueldoPersona, observaPersona);
         
+        
+        
+        //Verificar que no este en blanco los campos
+        if (observaPersona.equals("") || nombrePersona.equals("") || apellidoPersona.equals("") || dniPersona.equals("") 
+                || cuitPersona.equals("") || cbmCategoriaPersona.equals(0) || sueldoPersona.equals("")){
+            mostrarMensaje("Falta completar campos", "Error", "Error de compleación");
+        } else {
+            mostrarMensaje("Se guardó Correctamente", "Info", "Guardado");
+        }
+        
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+        
+        Principal Pantalla = new Principal();
+        Pantalla.setVisible(true);
+        Pantalla.setLocationRelativeTo(null);
+        this.dispose();
+        
+    }//GEN-LAST:event_btnRegresarActionPerformed
+
+    public void mostrarMensaje(String mensaje, String tipo, String titulo){
+        
         //Panel de opciones, agrega el mensaje
-        JOptionPane optionPane = new JOptionPane("Se guardó Correctamente");
-        //Tipo de mensaje que quiero
-        optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane optionPane = new JOptionPane(mensaje);
+            //Tipo de mensaje que quiero
+            if(tipo.equals("Info")){
+                optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+            }
+            else if (tipo.equals("Error")){
+                optionPane.setMessageType(JOptionPane.ERROR_MESSAGE);
+            }
+        
         //Tipo de pantalla y Titulo superior de la ventana
-        JDialog dialog = optionPane.createDialog("Guardado");
+        JDialog dialog = optionPane.createDialog(titulo);
         //Siempre arriba
         dialog.setAlwaysOnTop(true);
         //Siemrpe visible
         dialog.setVisible(true);
-        
-    }//GEN-LAST:event_btnGuardarActionPerformed
-
-
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnLimpiar;
+    private javax.swing.JButton btnRegresar;
     private javax.swing.JComboBox<String> cmbCategoria;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
