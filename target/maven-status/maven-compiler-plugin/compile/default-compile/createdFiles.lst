@@ -29,6 +29,7 @@ com\mycompany\appregistropersonal\persistencia\PersonaJpaController.class
 com\mycompany\appregistropersonal\igu\Principal$2.class
 com\mycompany\appregistropersonal\igu\ModificarDatos$6.class
 com\mycompany\appregistropersonal\AppRegistroPersonal.class
+com\mycompany\appregistropersonal\igu\Principal$3.class
 com\mycompany\appregistropersonal\igu\VerDatos$5.class
 com\mycompany\appregistropersonal\igu\CargaDatos$4.class
 com\mycompany\appregistropersonal\igu\ModificarDatos$5.class

@@ -12,6 +12,7 @@ public class Controlador {
         
         //Creamos los datos de la persona
         Persona persona = new Persona();
+        
         persona.setNombre(nombrePersona);
         persona.setApellido(apellidoPersona);
         persona.setDNI(dniPersona);
